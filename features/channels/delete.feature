@@ -16,7 +16,7 @@ Feature: Delete channels
       And I fill in "Name" with "Kyle"
       And I select "Basic" from "profile[profile_type_id]"
       And I press "Create"
-      And I should see "You do have a profile and its name Kyle"
+      And I should see "You do have a profile and its name is Kyle"
       And I should see "You do not have channels"
       When I follow "Add Channel"
       And I fill in "Title" with "My Channel 1"

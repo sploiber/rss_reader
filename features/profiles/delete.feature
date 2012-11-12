@@ -16,6 +16,6 @@ Feature: Delete profiles
       And I fill in "Name" with "Kyle"
       And I select "Basic" from "profile[profile_type_id]"
       And I press "Create"
-      And I should see "You do have a profile and its name Kyle"
+      And I should see "You do have a profile and its name is Kyle"
       And I follow "Delete Profile"
       And I should see "You do not have a profile"

@@ -16,11 +16,11 @@ Feature: Edit profiles
       And I fill in "Name" with "Kyle"
       And I select "Basic" from "profile[profile_type_id]"
       And I press "Create"
-      And I should see "You do have a profile and its name Kyle"
+      And I should see "You do have a profile and its name is Kyle"
       And I follow "Edit Profile"
       And I fill in "Name" with "Shaquille"
       And I press "Update"
-      And I should see "You do have a profile and its name Shaquille"
+      And I should see "You do have a profile and its name is Shaquille"
 
     Scenario: User decides not to proceed
       Given I exist as a user
@@ -35,7 +35,7 @@ Feature: Edit profiles
       And I fill in "Name" with "Kyle"
       And I select "Basic" from "profile[profile_type_id]"
       And I press "Create"
-      And I should see "You do have a profile and its name Kyle"
+      And I should see "You do have a profile and its name is Kyle"
       And I follow "Edit Profile"
       And I follow "Cancel"
-      And I should see "You do have a profile and its name Kyle"
+      And I should see "You do have a profile and its name is Kyle"
