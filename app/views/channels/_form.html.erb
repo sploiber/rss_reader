@@ -1,0 +1,14 @@
+<%= form_for [@profile, @channel] do |f| %>
+<%= f.error_messages %>
+<table>
+<tr>
+<td><%= f.label :title %></td>
+<td><%= f.text_field :title %></td>
+</tr>
+<tr>
+<td><%= f.label :url %></td>
+<td><%= f.text_field :url %></td>
+</tr>
+</table>
+<%= f.submit @submit_label, :class => "btn btn-primary btn-large" %>
+<% end %>

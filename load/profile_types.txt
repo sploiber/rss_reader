@@ -1,0 +1,4 @@
+use rss_development;
+insert into profile_types (id,name,num_channels) values (1,'Basic',10);
+insert into profile_types (id,name,num_channels) values (2,'Medium',20);
+insert into profile_types (id,name,num_channels) values (3,'Premium',100);

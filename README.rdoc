@@ -1,0 +1,80 @@
+== RSS_Reader Exercise
+
+The RSS Reader is a small interview exercise which makes use of a variety of
+Ruby on Rails techniques and gems.
+
+== Deployment Steps
+
+1. Download the code from the Git repository
+2. rake db:migrate (uses MySQL)
+3. "rake spec" should pass - to test the unit tests
+4. "rake cucumber" should pass - to test the integration tests
+5. Run "mysql -u root -D <database> < load/profile_type.txt" to load the
+   profile_type table.
+6. Start the Rails server on port 2100
+7. Test http://localhost:2100/ to confirm that the Home screen shows up.
+
+== Steps to Build the Application from Scratch
+
+These steps are provided if someone wishes to build a tutorial for this
+application.
+
+1. Run the command "rails new rss_reader --skip-unit-test --skip-prototype --skip-bundle -J -T"
+2. Add 'therubyracer' and 'mysql2' to bundle, and do bundle install.
+3. Edit config/database.yml, tailored for the specific database.
+4. add 'devise' to bundle and do 'bundle install'
+5. rails generate devise:install (installs config/initializers/devise.rb and
+localization file)
+6. Configure config.mailer_sender in config/initializers/devise.rb
+7. Add gem bootstrap-sass
+8. Add app/views/layouts/application.html.erb (based on Twitter Bootstrap)
+9. Add app/views/layouts/_messages.html.erb (Twitter Bootstrap)
+10. Add app/views/layouts/_navigation.html.erb (Twitter Bootstrap)
+11. Add app/assets/javascripts/application.js (Twitter Bootstrap)
+12. Add app/assets/stylesheets/application.css.scss (Twitter Bootstrap)
+13. Add app/assets/stylesheets/bootstrap_and_overrides.css.scss (Twitter Bootstrap)
+14. Add gems for JQuery UI (at this point there are no widgets in use)
+15. rake db:create
+16. rails generate devise User
+17. add password_confirmation to config/application.rb (filter_parameters)
+18. add simple_form gem
+19. list of devise modules: database_authenticatable; registerable;
+    recoverable; rememberable; trackable; validatable; confirmable;
+    omniauthable
+20. rake db:migrate
+21. Add gem omniauth
+22. rails generate migration AddFieldsToUsers first_name last_name login
+23. modify the migration to put required on the 3 fields
+24. gem rspec-rails, capybara, cucumber-rails, database_cleaner, email_spec,
+    factory_girl_rails (for testing)
+25. rails generate rspec:install
+26. rails generate cucumber:install --capybara --rspec
+27. Add DatabaseCleaner blocks to spec/spec_helper.rb
+28. Add spec/factories/users.rb, to create users
+29. Add spec/support/devise.rb, for controller tests
+30. Add an email spec in spec/spec_helper.rb
+31. In config/application.rb, don't generate RSpec tests for views and helpers
+32. rake -T confirms that cucumber and rspec are there
+33. Write Rspec tests for users_controller, home_controller, and user model.
+    At this point "rake spec" won't yet work.
+34. features/support/email_spec.rb (I have used email.rb)
+35. rails generate email_spec:steps
+36. add support/paths.rb, step_definitions/user_steps.rb, users tests
+37. rake cucumber will fail.
+38. modify config/environments/development.rb to set action_mailer for
+    mailing, and modify test too
+39. modify model for presence and uniqueness checking
+40. rails generate devise:views  (this is the registerable module)
+41. remove public/index.html
+42. rails generate controller home index --no-controller-specs
+43. Edit routes
+44. add first_name, last_name, login to app/views/devise/registrations/edit
+    and new.
+45. Tweak Cucumber test for sign_out (get vs. delete)
+46. Add gems oauth2, omniauth-facebook, omniauth-twitter
+47. rails generate migration AddFields2ToUsers provider uid
+48. rake db:migrate
+49. add :provider and :uid to attr_accessible
+50. add to config/initializers/devise.rb
+51. add profile_type table
+52. add Kaminari gem for pagination of channels.

@@ -1,0 +1,14 @@
+<%= form_for @profile do |f| %>
+<%= f.error_messages %>
+<table>
+<tr>
+<td><%= f.label :profile_type %></td>
+<td><%= f.collection_select(:profile_type_id, ProfileType.find(:all, :order => :name), :id, :name) %></td>
+</tr>
+<tr>
+<td><%= f.label :name %></td>
+<td><%= f.text_field :name, :size => 50  %></td>
+</tr>
+</table>
+<%= f.submit @submit_label, :class => "btn btn-primary btn-large" %>
+<% end %>
