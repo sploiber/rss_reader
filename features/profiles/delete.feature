@@ -3,7 +3,7 @@ Feature: Delete profiles
   A user
   Should be able to delete them
 
-    Scenario: User signs in successfully
+    Background:
       Given I exist as a user
         And I am not logged in
       When I sign in with valid credentials
@@ -17,5 +17,7 @@ Feature: Delete profiles
       And I select "Basic" from "profile[profile_type_id]"
       And I press "Create"
       And I should see "You do have a profile and its name is Kyle"
+
+    Scenario: User deletes profile
       And I follow "Delete Profile"
       And I should see "You do not have a profile"
